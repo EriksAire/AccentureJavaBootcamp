@@ -4,52 +4,19 @@ import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) {
-        int num1, num2;
-        var scanner = new Scanner(System.in);
+        var array = new int[10][10];
 
-        System.out.print("Enter first number: ");
-        num1 = scanner.nextInt();
-        System.out.print("Enter second number: ");
-        num2 = scanner.nextInt();
-
-        System.out.printf("Is %d equal to %d", num1, num2);
-        if(num1 == num2){
-            System.out.println(" -true");
-        }
-        else {
-            System.out.println(" -false");
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                array[i][j] = (i + 1) * (j + 1);
+            }
         }
 
-        System.out.printf("Is %d less than %d", num1, num2);
-        if(num1 < num2){
-            System.out.println(" -true");
-        }
-        else {
-            System.out.println(" -false");
-        }
-
-        System.out.printf("Is %d less or equal to %d", num1, num2);
-        if(num1 <= num2){
-            System.out.println(" -true");
-        }
-        else {
-            System.out.println(" -false");
-        }
-
-        System.out.printf("Is %d greater than %d", num1, num2);
-        if(num1 > num2){
-            System.out.println(" -true");
-        }
-        else {
-            System.out.println(" -false");
-        }
-
-        System.out.printf("Is %d greater or equal to %d", num1, num2);
-        if(num1 >= num2){
-            System.out.println(" -true");
-        }
-        else {
-            System.out.println(" -false");
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.print(array[i][j]+" ");
+            }
+            System.out.println();
         }
     }
 }

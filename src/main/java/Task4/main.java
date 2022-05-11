@@ -1,21 +1,18 @@
 package Task4;
 
-import java.util.Scanner;
-
 public class main {
     public static void main(String[] args) {
-        int num1;
-        var scanner = new Scanner(System.in);
+        var source = new BankAccount(100.0);
+        var destination = new BankAccount(0.0);
 
-        System.out.print("Enter whole number:");
-        num1 = scanner.nextInt();
+        source.deposit(4000.0);
+        source.printBalance();
 
-        System.out.printf("Is number odd?");
-        if(num1 % 2 == 0){
-            System.out.println(" -false");
-        }
-        else{
-            System.out.println(" -true");
-        }
+        source.withdraw(50.0);
+        source.printBalance();
+
+        System.out.println("Amount of money before transfer " + destination.getBalance());
+        source.transferMoney(50.0, destination);
+        destination.printBalance();
     }
 }

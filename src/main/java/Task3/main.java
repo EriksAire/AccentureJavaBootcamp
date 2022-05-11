@@ -1,21 +1,18 @@
 package Task3;
 
-import java.util.Scanner;
-
 public class main {
     public static void main(String[] args) {
-        int num1;
-        var scanner = new Scanner(System.in);
+        var source = new BankAccount(100);
+        var destination = new BankAccount(0);
 
-        System.out.print("Enter whole number:");
-        num1 = scanner.nextInt();
+        source.deposit(50);
+        source.printBalance();
 
-        System.out.printf("Is number even?");
-        if(num1 % 2 == 0){
-            System.out.println(" -true");
-        }
-        else{
-            System.out.println(" -false");
-        }
+        source.withdraw(50);
+        source.printBalance();
+
+        System.out.println("Amount of money before transfer " + destination.balance);
+        source.transferMoney(50, destination);
+        destination.printBalance();
     }
 }

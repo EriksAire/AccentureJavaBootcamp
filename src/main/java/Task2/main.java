@@ -1,24 +1,21 @@
 package Task2;
 
-import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class main {
     public static void main(String[] args) {
-        boolean b1, b2;
-        var scanner = new Scanner(System.in);
+       var array = IntStream.rangeClosed(1,4)
+                .limit(4)
+                .toArray();
 
-        System.out.print("Enter b1:");
-        b1 = scanner.nextBoolean();
+       int[] arrayCopy = new int[4];
 
-        System.out.print("Enter b2:");
-        b2 = scanner.nextBoolean();
-
-        System.out.printf("Is b1 and b2 equal?");
-        if(b1 == b2){
-            System.out.println(" -true");
+        for (int i=0; i<array.length; i++) {
+            arrayCopy[i] = array[i];
         }
-        else{
-            System.out.println(" -false");
+
+        for(int i: arrayCopy){
+            System.out.println(i);
         }
     }
 }
