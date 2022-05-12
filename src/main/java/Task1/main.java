@@ -1,22 +1,32 @@
 package Task1;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class main {
     public static void main(String[] args) {
-        var array = new int[10][10];
+        String[] colors = {"black", "white", "gray", "silver", "maroon", "red", "purple"};
 
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                array[i][j] = (i + 1) * (j + 1);
-            }
+        var colorsList = new ArrayList<String>(Arrays.asList(colors));
+
+        System.out.println(colorsList.get(2));
+
+        colorsList.remove(2);
+
+        colorsList.add("blue");
+
+        System.out.println("Colors list:");
+        for (String color : colorsList) {
+            System.out.print(color + " ");
         }
 
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                System.out.print(array[i][j]+" ");
-            }
-            System.out.println();
+        System.out.println("\n");
+
+        var colorsSublist = colorsList.subList(2, 5);
+
+        System.out.println("Colors sublist:");
+        for (String color : colorsSublist) {
+            System.out.print(color + " ");
         }
     }
 }
