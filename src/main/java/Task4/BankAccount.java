@@ -38,6 +38,7 @@ public class BankAccount {
 
     public void transferMoney(double amount, BankAccount transferTo){
         if(amount < this.balance){
+            this.withdraw(amount);
             transferTo.deposit(amount);
         }else{
             System.out.printf("Transfer cancelled. You are trying to transfer %f units, but only %f are available", amount, this.balance);

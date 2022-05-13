@@ -1,12 +1,13 @@
 package Task3;
 
 public class BankAccount {
+
     double balance;
 
     BankAccount(){
     }
 
-    BankAccount(double balance){
+    public BankAccount(double balance){
         this.balance = balance;
     }
 
@@ -23,6 +24,11 @@ public class BankAccount {
     }
 
     public void transferMoney(double amount, BankAccount transferTo){
+        this.withdraw(amount);
         transferTo.deposit(amount);
+    }
+
+    public double getBalance() {
+        return balance;
     }
 }
