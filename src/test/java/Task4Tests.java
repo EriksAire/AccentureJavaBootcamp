@@ -1,8 +1,16 @@
 import Task3.BankAccount;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class Task4Tests {
+    private BankAccount bankAccount;
+
+    @Before
+    public void setUp(){
+        bankAccount=new BankAccount(50);
+    }
+
     @Test
     public void bankAccountConstructorTest() {
         //Arrange
@@ -20,7 +28,6 @@ public class Task4Tests {
     public void depositTest() {
         //Arrange
         var expectedResult = 100.0;
-        var bankAccount = new BankAccount(50);
 
         //Act
         bankAccount.deposit(50);
@@ -34,7 +41,6 @@ public class Task4Tests {
     public void withdrawTest() {
         //Arrange
         var expectedResult = 0.0;
-        var bankAccount = new BankAccount(50);
 
         //Act
         bankAccount.withdraw(50);
@@ -49,7 +55,6 @@ public class Task4Tests {
     public void transferMoneyTest() {
         //Arrange
         var expectedResult = 0.0;
-        var bankAccount = new BankAccount(50);
         var transferDestination = new BankAccount(0);
         var destinationExpectedResult = 50;
 

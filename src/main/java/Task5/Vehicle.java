@@ -1,6 +1,9 @@
 package Task5;
 
+import org.apache.log4j.Logger;
+
 public class Vehicle {
+    static Logger logger = Logger.getLogger(Vehicle.class);
     double speed;
     double maxSpeed;
 
@@ -13,7 +16,7 @@ public class Vehicle {
         if (this.speed + speed <= maxSpeed) {
             this.speed += speed;
         } else {
-            System.out.println("Too fast");
+            logger.warn("Too fast");
         }
     }
 
