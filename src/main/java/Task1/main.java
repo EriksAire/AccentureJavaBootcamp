@@ -1,22 +1,42 @@
 package Task1;
 
-import java.util.Scanner;
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 public class main {
-    public static void main(String[] args) {
-        var array = new int[10][10];
+    private final ServerSocket serverSocket;
 
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                array[i][j] = (i + 1) * (j + 1);
-            }
-        }
+    public main(ServerSocket serverSocket) {
+        this.serverSocket = serverSocket;
+    }
 
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                System.out.print(array[i][j]+" ");
+    public void startServer() {
+        try {
+            while (!serverSocket.isClosed()) {
+                Socket socket = serverSocket.accept();
+                System.out.println("A new client has connected! " + socket);
+                ClientHandler clientHandler = new ClientHandler(socket);
+                Thread thread = new Thread(clientHandler);
+                thread.start();
             }
-            System.out.println();
+        } catch (IOException e) {
+            closeServerSocket();
         }
+    }
+    public void closeServerSocket() {
+        try {
+            if (serverSocket != null) {
+                serverSocket.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+        ServerSocket serverSocket = new ServerSocket(1234);
+        main server = new main(serverSocket);
+        server.startServer();
     }
 }
